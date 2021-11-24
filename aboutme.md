@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-subtitle: Who is Stephen Stilwell?
+subtitle: Stephen Stilwell
 ---
 
 Software Engineer  
