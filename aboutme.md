@@ -26,22 +26,22 @@ Technologies: Git, React.JS, Bash, MySQL, Unity, Android Studio, Django, Flask
 
 Nontechnical Abilities:
 
-•Working with a team 
-•Reading documentation for APIs & Frameworks 
+•Working with a team
+•Reading documentation for APIs & Frameworks
 •Unit & Integration Testing
-•Write code that is readable and reusable 
+•Write code that is readable and reusable
 •Readiness to learn & abandon poor habits
-•Author of 7 self-published books 
+•Author of 7 self-published books
 •Lifetime reader of approximately 500 books
 
 Professional Work Experience & Projects:
 
-Online Store - AWS React Stripe 
+Online Store - AWS React Stripe
 Software Engineer Dec 2020 – Mar 2021
 • Use Amazon Web Services: Amplify, AppSync, DynamoDB, Cognito, Lambda
 • Provide and Design: Work Breakdown Structure, Gantt / Pert Chart, Use Case Diagram
 
-Farming Simulation Game - GameMaker Studio 2 
+Farming Simulation Game - GameMaker Studio 2
 Software Engineer Dec 2020 – Mar 2021
 • Designed mechanics for farming, combat, mining and questing..
 • Implemented systems for storing in-game items and inventory management strategies.
@@ -49,8 +49,7 @@ Software Engineer Dec 2020 – Mar 2021
 Reddit Clone - Bulletin Board System
 Open Source Contributor - Ben Awad Dec 2020 – Mar 2021
 • Full stack project utilizing ReactJS, TypeScript, GraphQL, URQL/Apollo, Node.js, PostgreSQL
-• Gained experience working with MikroORM/TypeORM, Redis, Next.js, TypeGraphQL, Chakra
-
+• Gained experience working with MikroORM/TypeORM, Redis, Next.js, TypeGraphQL, Chakra.
 
 Books by Stephen Stilwell:
 Stay Stay Stay (2015)
