@@ -4,61 +4,82 @@ title: About Me
 subtitle: Who is Stephen Stilwell?
 ---
 
-Software Engineer - New Grad  
-Actively seeking a career path in IT computer systems.  
+Software Engineer  
+Google Cloud Platform  
+Amazon Web Services  
+Web & Mobile App Developer  
 
-Education:  
-Eastern Florida State College  
-August 2016 - December 2020  
-Bachelor of Applied Science in Computer Information Systems Technology  
-Specialization in Program Development/Software Development  
-• Courses: Obj-Oriented Programming, Database Architecture, Project Management, Web & Mobile  
+**Cities I Wish to Relocate to:**  
 
-Florida Institute of Technology  
-August 2013 - December 2015  
-Bachelor of Physics (incomplete/transferred)  
-• Undergraduate Research: CMS Experiment at CERN, High-Energy Proton Collision, Quark Decay  
+- New York City
+- Chicago
+- San Francisco
+- San Diego
+- Boston
+- Portland
+- Seattle
+- Los Angeles
+- Denver
+- Pittsburgh
+- Philadelphia
 
-Technical Skills:  
+**Education:**
 
-Languages: C++, Python, Java, C#, HTML, CSS  
-Technologies: Git, React.JS, Bash, MySQL, Unity, Android Studio, Django, Flask  
+- Eastern Florida State College
+- August 2016 - December 2020
+- Bachelor of Applied Science in Computer Information Systems Technology
+- Specialization in Program Development/Software Development
+- Courses: Obj-Oriented Programming, Database Architecture, Project Management, Web & Mobile  
 
-Nontechnical Abilities:  
+- Florida Institute of Technology  
+- August 2013 - December 2015  
+- Bachelor of Physics (incomplete/transferred)  
+- Undergraduate Research: CMS Experiment at CERN, High-Energy Proton Collision, Quark Decay  
 
-•Working with a team  
-•Reading documentation for APIs & Frameworks  
-•Unit & Integration Testing  
-•Write code that is readable and reusable  
-•Readiness to learn & abandon poor habits  
-•Author of 7 self-published books  
-•Lifetime reader of approximately 500 books  
+**Technical Skills:**  
 
-Professional Work Experience & Projects:  
+- Languages: C++, Python, Java, C#, HTML, CSS  
+- Technologies: Git, React.JS, Bash, MySQL, Unity, Android Studio, Django, Flask  
 
-Online Store - AWS React Stripe  
-Software Engineer Dec 2020 – Mar 2021  
-• Use Amazon Web Services: Amplify, AppSync, DynamoDB, Cognito, Lambda  
-• Provide and Design: Work Breakdown Structure, Gantt / Pert Chart, Use Case Diagram  
+**Nontechnical Abilities:**  
 
-Farming Simulation Game - GameMaker Studio 2  
-Software Engineer Dec 2020 – Mar 2021  
-• Designed mechanics for farming, combat, mining and questing..  
-• Implemented systems for storing in-game items and inventory management strategies.  
+- Working with a team  
+- Reading documentation for APIs & Frameworks  
+- Unit & Integration Testing  
+- Write code that is readable and reusable  
+- Readiness to learn & abandon poor habits  
+- Author of 7 self-published books  
+- Lifetime reader of approximately 500 books  
 
-Reddit Clone - Bulletin Board System  
-Open Source Contributor - Ben Awad Dec 2020 – Mar 2021  
-• Full stack project utilizing ReactJS, TypeScript, GraphQL, URQL/Apollo, Node.js, PostgreSQL  
-• Gained experience working with MikroORM/TypeORM, Redis, Next.js, TypeGraphQL, Chakra.  
+**Professional Work Experience & Projects:**  
 
-Books by Stephen Stilwell:  
-Stay Stay Stay (2015)  
-Soft Green Shade (2016)  
-Siren Song (2017)  
-Her Love and Its Color (2018)  
-As Told by Nature: Earth's Story (2018)  
-When She Speaks (2018)  
-Steps: How Learning More Means Earning More (2019)  
+Online Store - AWS React Stripe
+
+- Software Engineer Dec 2020 – Mar 2021  
+- Use Amazon Web Services: Amplify, AppSync, DynamoDB, Cognito, Lambda  
+- Provide and Design: Work Breakdown Structure, Gantt / Pert Chart, Use Case Diagram  
+
+Farming Simulation Game - GameMaker Studio 2
+
+- Software Engineer Dec 2020 – Mar 2021  
+- Designed mechanics for farming, combat, mining and questing..  
+- Implemented systems for storing in-game items and inventory management strategies.  
+
+Reddit Clone - Bulletin Board System
+
+- Open Source Contributor - Ben Awad Dec 2020 – Mar 2021  
+- Full stack project utilizing ReactJS, TypeScript, GraphQL, URQL/Apollo, Node.js, PostgreSQL  
+- Gained experience working with MikroORM/TypeORM, Redis, Next.js, TypeGraphQL, Chakra.  
+
+**Books by Stephen Stilwell:**
+
+- Stay Stay Stay (2015)  
+- Soft Green Shade (2016)  
+- Siren Song (2017)  
+- Her Love and Its Color (2018)  
+- As Told by Nature: Earth's Story (2018)  
+- When She Speaks (2018)  
+- Steps: How Learning More Means Earning More (2019)  
 
 SEO / PPC / SEM Search Engine Optimization  
 Google Adwords, Google Adsense, Facebook Ads  
