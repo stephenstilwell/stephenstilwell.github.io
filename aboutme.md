@@ -25,13 +25,15 @@ Web & Mobile App Developer
 
 **Education:**
 
-- Eastern Florida State College
+Eastern Florida State College
+
 - August 2016 - December 2020
 - Bachelor of Applied Science in Computer Information Systems Technology
-- Specialization in Program Development/Software Development
+- Specialization in Program Development/Software Development  
 - Courses: Obj-Oriented Programming, Database Architecture, Project Management, Web & Mobile  
 
-- Florida Institute of Technology  
+Florida Institute of Technology
+
 - August 2013 - December 2015  
 - Bachelor of Physics (incomplete/transferred)  
 - Undergraduate Research: CMS Experiment at CERN, High-Energy Proton Collision, Quark Decay  
@@ -86,8 +88,4 @@ Google Adwords, Google Adsense, Facebook Ads
 Lead Generation  
 
 Undergraduate Research in High-Energy Physics  
--using the Large Hadron Collider's (LHC) Compact Muon Solenoid (CMS) Experiment  
-
-### My story
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+using the Large Hadron Collider's (LHC) Compact Muon Solenoid (CMS) Experiment  
