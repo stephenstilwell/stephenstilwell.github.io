@@ -23,7 +23,7 @@ Web & Mobile App Developer
 - Pittsburgh
 - Philadelphia
 
-### Current Position, Work & Roles**
+### My Current Work
 
 Volociti - Startup
 
