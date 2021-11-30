@@ -30,7 +30,7 @@ Volociti - Startup
 - Design and Develop applications using Flutter: Google's UI toolkit for crafting beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.
 - Use Google Cloud to build scalable and highly available web & mobile applications.
 - Manage application performance monitoring and deploy applications that are internet-based using REST API.
-- Leveraged Amazon Web Services: AWS Lambda, S3, EC2, SES & IAM role policies to build Cloud Technology Solutions & Automations.
+- Leverage Amazon Web Services: AWS Lambda, S3, EC2, SES & IAM role policies to build Cloud Technology Solutions & Automations.
 
 **Education:**
 
