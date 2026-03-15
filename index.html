@@ -1,5 +1,69 @@
----
-layout: home
-title: Stephen Stilwell
-subtitle: Work Experience & Project History
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Book of Stephen</title>
+  <meta name="description" content="The Book of Stephen — a literary work written in the tradition of the King James Bible.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4DC;</text></svg>">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <header class="site-header">
+    <div class="site-title">stephenstilwell.github.io</div>
+  </header>
+
+  <main>
+
+    <section class="book-title-section">
+      <p class="book-label">The Literary Scripture of</p>
+      <h1>The Book<br>of Stephen</h1>
+      <span class="ornament">&#10022; &#10022; &#10022;</span>
+      <p class="book-byline">Written by Stephen Stilwell</p>
+    </section>
+
+    <p class="preface">
+      Being a record of the words, deeds, and meditations of Stephen,
+      written in the manner of the ancient scriptures, for the instruction
+      and edification of all who read therein.
+    </p>
+
+    <section class="toc-section">
+      <h2>The Chapters</h2>
+      <ul class="toc-list">
+        <li>
+          <a href="chapters/chapter-1.html">
+            <span class="chapter-name">Chapter I</span>
+            <span class="chapter-subtitle">The Beginning of Days</span>
+          </a>
+        </li>
+        <!--
+          Add new chapters here as you write them. Copy the <li> block above
+          and update the href, chapter name, and subtitle.
+
+          Example:
+          <li>
+            <a href="chapters/chapter-2.html">
+              <span class="chapter-name">Chapter II</span>
+              <span class="chapter-subtitle">The subtitle here</span>
+            </a>
+          </li>
+        -->
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="yr"></span> Stephen Stilwell &mdash;
+    <a href="https://github.com/stephenstilwell/stephenstilwell.github.io">GitHub</a>
+  </footer>
+
+</div>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
