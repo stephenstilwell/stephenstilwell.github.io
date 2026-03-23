@@ -7,6 +7,466 @@
   <meta name="description" content="No-Knead Overnight Focaccia with Slow-Simmered Garlic Oil — a recipe by Stephen Stilwell">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4DC;</text></svg>">
+  <style>
+    /* ── Hero ── */
+    .recipe-hero {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .recipe-hero .recipe-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .recipe-hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .recipe-hero .recipe-subtitle {
+      font-style: italic;
+      color: var(--ink-light);
+      font-size: 1.05rem;
+    }
+
+    /* ── Stats bar ── */
+    .recipe-stats {
+      display: flex;
+      border-bottom: 1px solid var(--rule);
+    }
+    .stat {
+      flex: 1;
+      text-align: center;
+      padding: 1.1rem 0.5rem;
+      border-right: 1px solid var(--rule);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-value {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .stat-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.56rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: block;
+    }
+
+    /* ── Jump links ── */
+    .jump-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem 1.25rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .jump-links a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .jump-links a:hover { border-bottom-color: var(--gold); }
+    .jump-sep { color: var(--gold); opacity: 0.4; }
+
+    /* ── Recipe intro ── */
+    .r-intro {
+      font-style: italic;
+      color: var(--ink-light);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 0.97rem;
+      line-height: 1.85;
+    }
+
+    /* ── Generic section ── */
+    .r-section { margin-bottom: 3.5rem; }
+    .r-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Scaler bar ── */
+    .scaler-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1.75rem;
+      background: var(--parchment-dark);
+      border: 1px solid var(--rule);
+    }
+    .scaler {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scaler-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+    .scaler-btn {
+      width: 1.4rem;
+      height: 1.4rem;
+      border: 1px solid var(--rule);
+      background: var(--parchment);
+      cursor: pointer;
+      color: var(--gold);
+      font-size: 1rem;
+      line-height: 1;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .scaler-btn:hover:not(:disabled) {
+      background: var(--ink);
+      color: var(--gold-light);
+      border-color: var(--ink);
+    }
+    .scaler-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+    .scaler-count {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      min-width: 1.4rem;
+      text-align: center;
+    }
+    .unit-toggle {
+      display: flex;
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .unit-btn {
+      padding: 0.28rem 0.75rem;
+      border: none;
+      border-left: 1px solid var(--rule);
+      background: var(--parchment);
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: background 0.15s, color 0.15s;
+    }
+    .unit-btn:first-child { border-left: none; }
+    .unit-btn.active {
+      background: var(--ink);
+      color: var(--gold-light);
+    }
+
+    /* ── Ingredient table ── */
+    .ing-group { margin-bottom: 1.75rem; }
+    .ing-group-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.63rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.5rem;
+    }
+    table.ings {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table.ings tr {
+      border-bottom: 1px solid rgba(201, 162, 39, 0.18);
+      cursor: pointer;
+      transition: opacity 0.25s;
+    }
+    table.ings tr:hover { background: rgba(201, 162, 39, 0.04); }
+    table.ings tr.checked { opacity: 0.36; }
+    table.ings tr.checked td { text-decoration: line-through; text-decoration-color: var(--ink-light); }
+    table.ings td { padding: 0.44rem 0; vertical-align: middle; font-size: 0.96rem; }
+    .ing-chk-cell { width: 1.4rem; }
+    .cb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 0.85rem;
+      height: 0.85rem;
+      border: 1px solid rgba(139, 105, 20, 0.55);
+      background: transparent;
+      cursor: pointer;
+      display: block;
+      position: relative;
+      transition: background 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .cb:checked { background: var(--gold); border-color: var(--gold); }
+    .cb:checked::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 3px;
+      width: 4px;
+      height: 7px;
+      border: 1.5px solid var(--parchment);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+    .ing-amt { text-align: right; white-space: nowrap; padding-left: 1.5rem; }
+    .ing-g { font-weight: 500; color: var(--ink); }
+    .ing-v { color: var(--ink-light); font-size: 0.87rem; }
+    .ing-v.dimmed { opacity: 0.45; }
+    .vol-note {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      text-align: right;
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+    .vol-note.hidden { display: none; }
+
+    /* ── Science section ── */
+    .science-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.25rem;
+    }
+    .science-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .toggle-all-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: none;
+      border: 1px solid var(--rule);
+      padding: 0.25rem 0.65rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .toggle-all-btn:hover {
+      background: var(--ink);
+      color: var(--gold-light);
+      border-color: var(--ink);
+    }
+    details.sci {
+      border-bottom: 1px solid rgba(201, 162, 39, 0.18);
+      padding: 0.75rem 0;
+    }
+    details.sci summary {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    details.sci summary::-webkit-details-marker,
+    details.sci summary::marker { display: none; }
+    details.sci summary::after {
+      content: '▾';
+      font-size: 0.8rem;
+      color: var(--gold);
+      transition: transform 0.15s;
+      flex-shrink: 0;
+      margin-left: 0.5rem;
+    }
+    details.sci[open] summary::after { transform: rotate(180deg); }
+    details.sci .sci-body { padding-top: 0.7rem; }
+    details.sci p { margin-bottom: 0.6rem; font-size: 0.95rem; }
+    details.sci p:last-child { margin-bottom: 0; }
+
+    /* ── Progress tracker ── */
+    .progress-tracker {
+      margin-bottom: 2rem;
+      border: 1px solid var(--rule);
+      background: var(--parchment-dark);
+    }
+    .progress-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1rem 0.55rem;
+    }
+    .progress-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+    .progress-reset {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .progress-reset:hover { text-decoration: underline; text-underline-offset: 2px; }
+    .progress-bar-wrap { height: 3px; background: rgba(201, 162, 39, 0.15); }
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      transition: width 0.35s ease;
+      width: 0%;
+    }
+
+    /* ── Day blocks ── */
+    .day-block { margin-bottom: 2.5rem; }
+    .day-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.73rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      padding: 0.6rem 0;
+      margin-bottom: 0.5rem;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .day-note {
+      font-style: italic;
+      color: var(--ink-light);
+      font-size: 0.87rem;
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Steps ── */
+    .step {
+      display: flex;
+      gap: 1.1rem;
+      margin-bottom: 1.75rem;
+      transition: opacity 0.35s;
+    }
+    .step.done { opacity: 0.38; }
+    .step-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 0.08rem;
+    }
+    .step-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--gold-light);
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .step.active .step-circle {
+      box-shadow: 0 0 0 2px var(--parchment), 0 0 0 3.5px var(--gold-light);
+    }
+    .step.done .step-circle { background: var(--gold); }
+    .step-content { flex: 1; min-width: 0; }
+    .step-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.73rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.55rem;
+    }
+    .step-content p { margin-bottom: 0.65rem; font-size: 0.96rem; }
+    .step-content p:last-child { margin-bottom: 0; }
+
+    /* ── Notes accordion ── */
+    details.note {
+      border-bottom: 1px solid rgba(201, 162, 39, 0.18);
+      padding: 0.75rem 0;
+    }
+    details.note summary {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    details.note[open] summary { margin-bottom: 0.75rem; }
+    details.note summary::-webkit-details-marker,
+    details.note summary::marker { display: none; }
+    details.note summary::after {
+      content: '▾';
+      font-size: 0.8rem;
+      color: var(--gold);
+      transition: transform 0.15s;
+      flex-shrink: 0;
+      margin-left: 0.5rem;
+    }
+    details.note[open] summary::after { transform: rotate(180deg); }
+    details.note p { font-size: 0.95rem; }
+    details.note p + p { margin-top: 0.6rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .recipe-hero h1 { font-size: 1.7rem; }
+      .recipe-stats { flex-wrap: wrap; }
+      .stat { flex: 1 1 33%; border-right: none; border-bottom: 1px solid var(--rule); }
+      .stat:last-child { border-bottom: none; }
+      .scaler-bar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 <div class="page-wrapper">
@@ -22,246 +482,363 @@
 
   <main>
 
-    <div class="recipe-header">
+    <!-- ── Hero ── -->
+    <div class="recipe-hero">
       <p class="recipe-label">A Recipe by Stephen Stilwell</p>
       <h1>No-Knead Overnight Focaccia</h1>
       <span class="ornament">&#10022; &#10022; &#10022;</span>
       <p class="recipe-subtitle">With Slow-Simmered Garlic Oil</p>
-      <div class="recipe-meta">
-        <span>Serves 8</span>
-        <span class="meta-sep">&#10022;</span>
-        <span>30&times;40 cm &nbsp;or&nbsp; 23&times;33 cm</span>
-        <span class="meta-sep">&#10022;</span>
-        <span>Overnight + 3&ndash;4 hrs day of</span>
+    </div>
+
+    <!-- ── Quick stats ── -->
+    <div class="recipe-stats">
+      <div class="stat">
+        <span class="stat-value">8</span>
+        <span class="stat-label">Serves</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">30m</span>
+        <span class="stat-label">Active</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">18h</span>
+        <span class="stat-label">Cold Proof</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">25m</span>
+        <span class="stat-label">Bake</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">85%</span>
+        <span class="stat-label">Hydration</span>
       </div>
     </div>
 
-    <p class="recipe-intro">
+    <!-- ── Intro & jump links ── -->
+    <p class="r-intro">
       A slow-fermented, hands-off focaccia built on time, not technique.<br>
       No stand mixer needed &mdash; just a bowl, a fold, and patience.
     </p>
 
-    <div class="recipe-note">
-      <p class="note-heading">A Note on Measurement</p>
-      <p>Weight in grams is always preferred. Volumetric is provided as a backup only &mdash; baking by weight is more accurate and more consistent.</p>
+    <div class="jump-links">
+      <a href="#ingredients">Ingredients</a>
+      <span class="jump-sep">&#10022;</span>
+      <a href="#science">The Science</a>
+      <span class="jump-sep">&#10022;</span>
+      <a href="#method">Method</a>
+      <span class="jump-sep">&#10022;</span>
+      <a href="#notes">Notes</a>
     </div>
 
-    <!-- ── INGREDIENTS ── -->
-    <section class="recipe-section">
-      <h2 class="recipe-section-heading">Ingredients</h2>
+    <!-- ── Ingredients ── -->
+    <section class="r-section" id="ingredients">
+      <h2 class="r-heading">Ingredients</h2>
 
-      <div class="ingredient-group">
-        <h3 class="ingredient-group-heading">Dough</h3>
-        <table class="ingredient-table">
+      <!-- Scaler + unit toggle -->
+      <div class="scaler-bar">
+        <div class="scaler">
+          <span class="scaler-label">Servings</span>
+          <button class="scaler-btn" id="btn-minus" aria-label="Fewer servings">&#8722;</button>
+          <span class="scaler-count" id="scaler-count">8</span>
+          <button class="scaler-btn" id="btn-plus" aria-label="More servings">&#43;</button>
+        </div>
+        <div class="unit-toggle">
+          <button class="unit-btn active" data-unit="g">Grams</button>
+          <button class="unit-btn" data-unit="v">Volume</button>
+        </div>
+      </div>
+
+      <!-- Check off ingredients by clicking rows -->
+      <div class="ing-group">
+        <p class="ing-group-label">Dough</p>
+        <table class="ings">
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Bread flour, high-protein (12&ndash;14%)</td>
-            <td>500g</td>
-            <td>~4 cups (spooned &amp; levelled)</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="500" data-type="g">500g</span>
+              <span class="ing-v" style="display:none">~4 cups (spooned &amp; levelled)</span>
+            </td>
           </tr>
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Warm water (~35&deg;C / 95&deg;F)</td>
-            <td>425g</td>
-            <td>~1&frac34; cups</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="425" data-type="g">425g</span>
+              <span class="ing-v" style="display:none">~1&frac34; cups</span>
+            </td>
           </tr>
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Fine sea salt</td>
-            <td>10g</td>
-            <td>~1&frac34; tsp</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="10" data-type="g">10g</span>
+              <span class="ing-v" style="display:none">~1&frac34; tsp</span>
+            </td>
           </tr>
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Instant or active dry yeast</td>
-            <td>4g</td>
-            <td>~1&frac14; tsp</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="4" data-type="g">4g</span>
+              <span class="ing-v" style="display:none">~1&frac14; tsp</span>
+            </td>
           </tr>
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Extra-virgin olive oil</td>
-            <td>30g</td>
-            <td>~2 tbsp</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="30" data-type="g">30g</span>
+              <span class="ing-v" style="display:none">~2 tbsp</span>
+            </td>
           </tr>
         </table>
       </div>
 
-      <div class="ingredient-group">
-        <h3 class="ingredient-group-heading">Pan</h3>
-        <table class="ingredient-table">
+      <div class="ing-group">
+        <p class="ing-group-label">Pan</p>
+        <table class="ings">
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Extra-virgin olive oil</td>
-            <td>60g</td>
-            <td>~&frac14; cup</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="60" data-type="g">60g</span>
+              <span class="ing-v" style="display:none">~&frac14; cup</span>
+            </td>
           </tr>
         </table>
       </div>
 
-      <div class="ingredient-group">
-        <h3 class="ingredient-group-heading">Slow-Simmered Garlic Oil</h3>
-        <table class="ingredient-table">
+      <div class="ing-group">
+        <p class="ing-group-label">Slow-Simmered Garlic Oil</p>
+        <table class="ings">
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Extra-virgin olive oil</td>
-            <td>80g</td>
-            <td>~&frac13; cup</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="80" data-type="g">80g</span>
+              <span class="ing-v" style="display:none">~&frac13; cup</span>
+            </td>
           </tr>
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Garlic cloves, thinly sliced</td>
-            <td>6 cloves</td>
-            <td></td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="6" data-type="cloves">6 cloves</span>
+              <span class="ing-v" style="display:none">6 cloves</span>
+            </td>
           </tr>
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Fresh rosemary sprigs</td>
-            <td>3 sprigs</td>
-            <td></td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="3" data-type="sprigs">3 sprigs</span>
+              <span class="ing-v" style="display:none">3 sprigs</span>
+            </td>
           </tr>
           <tr>
-            <td>Chilli flakes (optional)</td>
-            <td>1&ndash;2g</td>
-            <td>~&frac12; tsp</td>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
+            <td>Chilli flakes <em>(optional)</em></td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="1.5" data-type="g">1&ndash;2g</span>
+              <span class="ing-v" style="display:none">~&frac12; tsp</span>
+            </td>
           </tr>
         </table>
       </div>
 
-      <div class="ingredient-group">
-        <h3 class="ingredient-group-heading">Topping</h3>
-        <table class="ingredient-table">
+      <div class="ing-group">
+        <p class="ing-group-label">Topping</p>
+        <table class="ings">
           <tr>
+            <td class="ing-chk-cell"><input type="checkbox" class="cb"></td>
             <td>Flaky sea salt</td>
-            <td>~4g</td>
-            <td>~1 tsp</td>
+            <td class="ing-amt">
+              <span class="ing-g" data-base="4" data-type="g">~4g</span>
+              <span class="ing-v" style="display:none">~1 tsp</span>
+            </td>
           </tr>
         </table>
       </div>
 
-    </section>
-
-    <!-- ── THE SCIENCE ── -->
-    <section class="recipe-section">
-      <h2 class="recipe-section-heading">The Science</h2>
-      <p class="section-intro">What&rsquo;s happening and why.</p>
-
-      <div class="science-entry">
-        <span class="science-term">Flour &amp; Gluten</span>
-        <p>High-protein bread flour (12&ndash;14% protein) is essential. Gluten forms when two proteins in flour &mdash; glutenin and gliadin &mdash; bond in the presence of water. More protein means a stronger network to trap CO&sub2; from fermentation, giving you structure, chew, and an open crumb. All-purpose flour works in a pinch but produces a softer, less chewy result.</p>
-        <p>You do not need to knead this dough. Gluten develops through two mechanisms here: <em>autolyse</em> (simply by hydrating, flour proteins begin bonding on their own) and <em>stretch &amp; fold</em> (gentle folding aligns gluten strands progressively without friction). Each set builds the network further.</p>
-      </div>
-
-      <div class="science-entry">
-        <span class="science-term">Hydration</span>
-        <p>This dough is 85% hydration (425g water &divide; 500g flour). High hydration means more steam in the oven and a more open, airy, custardy crumb. The dough will feel uncomfortably sticky. That is correct. Do not add more flour &mdash; oil your hands, not the dough.</p>
-      </div>
-
-      <div class="science-entry">
-        <span class="science-term">Yeast &amp; Fermentation</span>
-        <p>4g of yeast is intentionally low for a long cold proof. Less yeast over a longer time allows enzymes to break down starches into more complex sugars, and organic acids (lactic, acetic) to build flavour depth &mdash; a slow, even rise without overproofing. Cold fermentation slows yeast activity but keeps enzymatic activity ticking along. This is where real flavour is built. 18 hours is the sweet spot.</p>
-      </div>
-
-      <div class="science-entry">
-        <span class="science-term">Salt</span>
-        <p>Salt tightens the gluten network, controls fermentation speed, and is critical for flavour. Do not reduce it. Add it after the yeast is dissolved &mdash; direct contact between undiluted salt and yeast can inhibit or kill it.</p>
-      </div>
-
-      <div class="science-entry">
-        <span class="science-term">Oil in the Pan</span>
-        <p>The generous pool of olive oil on the pan base is not just anti-stick. It essentially fries the bottom of the focaccia in the oven, creating the deeply golden, crispy underside that defines good focaccia. Do not reduce it.</p>
-      </div>
+      <p class="vol-note hidden" id="vol-scale-note">
+        &#42; Volume is for 1&times; only &mdash; scale by weight for other quantities.
+      </p>
 
     </section>
 
-    <!-- ── METHOD ── -->
-    <section class="recipe-section">
-      <h2 class="recipe-section-heading">Method</h2>
+    <!-- ── The Science ── -->
+    <section class="r-section" id="science">
+      <div class="science-header">
+        <span class="science-label">The Science</span>
+        <button class="toggle-all-btn" id="toggle-all-sci">Collapse All</button>
+      </div>
 
+      <details class="sci" open>
+        <summary>Flour &amp; Gluten</summary>
+        <div class="sci-body">
+          <p>High-protein bread flour (12&ndash;14% protein) is essential. Gluten forms when two proteins &mdash; glutenin and gliadin &mdash; bond in the presence of water. More protein means a stronger network to trap CO&sub2; from fermentation, giving you structure, chew, and an open crumb. All-purpose flour works in a pinch but produces a softer, less chewy result.</p>
+          <p>You do not need to knead this dough. Gluten develops through two mechanisms: <em>autolyse</em> (flour proteins begin bonding simply by hydrating) and <em>stretch &amp; fold</em> (gentle folding aligns strands progressively without friction). Each set builds the network further.</p>
+        </div>
+      </details>
+
+      <details class="sci" open>
+        <summary>Hydration</summary>
+        <div class="sci-body">
+          <p>This dough is 85% hydration (425g water &divide; 500g flour). High hydration means more steam in the oven and a more open, airy, custardy crumb. The dough will feel uncomfortably sticky. That is correct. Do not add more flour &mdash; oil your hands, not the dough.</p>
+        </div>
+      </details>
+
+      <details class="sci" open>
+        <summary>Yeast &amp; Fermentation</summary>
+        <div class="sci-body">
+          <p>4g of yeast is intentionally low for a long cold proof. Less yeast over a longer time allows enzymes to break down starches into more complex sugars, and organic acids (lactic, acetic) to develop flavour depth. Cold fermentation slows yeast activity dramatically but keeps enzymatic activity ticking. This is where real flavour is built. 18 hours is the sweet spot.</p>
+        </div>
+      </details>
+
+      <details class="sci" open>
+        <summary>Salt</summary>
+        <div class="sci-body">
+          <p>Salt tightens the gluten network, controls fermentation speed, and is critical for flavour. Do not reduce it. Add it after the yeast is dissolved &mdash; direct contact between undiluted salt and yeast can inhibit or kill it.</p>
+        </div>
+      </details>
+
+      <details class="sci" open>
+        <summary>Oil in the Pan</summary>
+        <div class="sci-body">
+          <p>The generous pool of olive oil is not just anti-stick. It essentially fries the bottom of the focaccia in the oven, creating the deeply golden, crispy underside that defines good focaccia. Do not reduce it.</p>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ── Method ── -->
+    <section class="r-section" id="method">
+      <h2 class="r-heading">Method</h2>
+
+      <!-- Progress tracker -->
+      <div class="progress-tracker">
+        <div class="progress-top">
+          <span class="progress-text" id="progress-text">0 of 8 steps complete</span>
+          <button class="progress-reset" id="reset-btn">Reset</button>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Day 1 -->
       <div class="day-block">
         <h3 class="day-heading">Day One &mdash; Evening</h3>
         <p class="day-note">About 2&ndash;2&frac12; hours, mostly waiting.</p>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">1</span>
-            Mix
+        <div class="step active" data-step="0">
+          <button class="step-toggle" aria-label="Mark step 1 complete">
+            <span class="step-circle">1</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Mix</p>
+            <p>In a large bowl, whisk together 425g warm water and 4g yeast. If using <em>active dry yeast</em>: wait 5&ndash;10 minutes until frothy. If using <em>instant yeast</em>: proceed immediately.</p>
+            <p>Add 10g salt and 30g olive oil. Stir briefly. Add 500g flour all at once. Mix with a stiff spatula or your hand until no dry flour remains &mdash; about 2 minutes. The dough will look rough, shaggy, and sticky. That is exactly right. Cover tightly.</p>
           </div>
-          <p>In a large bowl, whisk together 425g warm water and 4g yeast. If using <em>active dry yeast</em>: wait 5&ndash;10 minutes until frothy. If using <em>instant yeast</em>: proceed immediately.</p>
-          <p>Add 10g salt and 30g olive oil. Stir briefly. Add 500g flour all at once. Mix with a stiff spatula or your hand until no dry flour remains &mdash; about 2 minutes. The dough will look rough, shaggy, and sticky. That is exactly right. Cover tightly.</p>
         </div>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">2</span>
-            Bulk Fermentation &amp; Stretch &amp; Fold
+        <div class="step" data-step="1">
+          <button class="step-toggle" aria-label="Mark step 2 complete">
+            <span class="step-circle">2</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Bulk Fermentation &amp; Stretch &amp; Fold</p>
+            <p>Leave covered at room temperature for 30 minutes. Then perform your first set of stretch &amp; folds.</p>
+            <div class="recipe-note">
+              <p class="note-heading">How to Stretch &amp; Fold</p>
+              <p>Wet your hand. Reach under one side of the dough, stretch it upward as far as it will go without tearing, fold it over the top. Rotate the bowl 90&deg;. Repeat. Four folds equals one set.</p>
+            </div>
+            <p>Perform 3&ndash;4 sets, one every 30 minutes. You will feel the dough tighten and smooth with each round. After the final fold it should be noticeably smoother, slightly puffed, and more elastic.</p>
           </div>
-          <p>Leave covered at room temperature for 30 minutes. Then perform your first set of stretch &amp; folds.</p>
-          <div class="recipe-note">
-            <p class="note-heading">How to Stretch &amp; Fold</p>
-            <p>Wet your hand. Reach under one side of the dough, stretch it upward as far as it will go without tearing, fold it over the top. Rotate the bowl 90&deg;. Repeat. Four folds equals one set.</p>
-          </div>
-          <p>Perform 3&ndash;4 sets, one every 30 minutes. You will feel the dough tighten and smooth with each round. After the final fold it should be noticeably smoother, slightly puffed, and more elastic.</p>
         </div>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">3</span>
-            Cold Proof Overnight
+        <div class="step" data-step="2">
+          <button class="step-toggle" aria-label="Mark step 3 complete">
+            <span class="step-circle">3</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Cold Proof Overnight</p>
+            <p>Cover the bowl tightly and refrigerate for 12&ndash;24 hours. 18 hours is ideal. The dough will look less dramatically puffy than a warm proof &mdash; that is fine. It will come alive in the pan.</p>
           </div>
-          <p>Cover the bowl tightly and refrigerate for 12&ndash;24 hours. 18 hours is ideal. The dough will look less dramatically puffy than a warm proof &mdash; that is fine. It will come alive in the pan.</p>
         </div>
       </div>
 
+      <!-- Day 2 -->
       <div class="day-block">
         <h3 class="day-heading">Day Two &mdash; Baking Day</h3>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">4</span>
-            Make the Garlic Oil
+        <div class="step" data-step="3">
+          <button class="step-toggle" aria-label="Mark step 4 complete">
+            <span class="step-circle">4</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Make the Garlic Oil</p>
+            <p>Pour 80g olive oil into a small saucepan. Add 6 thinly sliced garlic cloves and 3 rosemary sprigs. Place over the lowest possible heat &mdash; the oil should barely shimmer, never sizzle aggressively.</p>
+            <p>Cook 20&ndash;25 minutes until garlic is pale golden, tender, and sweet-smelling. This is confit, not frying. Add chilli flakes in the final 5 minutes if using. Remove from heat, discard rosemary stems, let cool completely. The garlic slices are a topping.</p>
           </div>
-          <p>Pour 80g olive oil into a small saucepan. Add 6 thinly sliced garlic cloves and 3 rosemary sprigs. Place over the lowest possible heat &mdash; the oil should barely shimmer, never sizzle or bubble aggressively.</p>
-          <p>Cook for 20&ndash;25 minutes until garlic is pale golden, completely tender, and sweet-smelling. This is confit, not frying. Add chilli flakes in the final 5 minutes if using. Remove from heat, discard rosemary stems, and let cool completely. The garlic slices are a topping.</p>
         </div>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">5</span>
-            Pan &amp; Second Proof
+        <div class="step" data-step="4">
+          <button class="step-toggle" aria-label="Mark step 5 complete">
+            <span class="step-circle">5</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Pan &amp; Second Proof</p>
+            <p>Pour 60g olive oil into your pan, coating the entire base. Scrape the cold dough into the pan and flip it once so both sides are coated. Do not press it out yet &mdash; let it rest loosely covered at room temperature for 2&ndash;4 hours until relaxed, puffy, and filling most of the pan. If it springs back when stretched, it is not ready.</p>
           </div>
-          <p>Pour 60g olive oil into your pan, coating the entire base. Scrape the cold dough from the fridge into the pan. Flip it once gently so both sides are coated in oil. Do not press it out yet &mdash; let it rest, loosely covered, at room temperature for 2&ndash;4 hours until relaxed, puffy, and filling most of the pan. If it springs back when you try to stretch it, it is not ready.</p>
         </div>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">6</span>
-            Dimple, Top &amp; Final Rest
+        <div class="step" data-step="5">
+          <button class="step-toggle" aria-label="Mark step 6 complete">
+            <span class="step-circle">6</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Dimple, Top &amp; Final Rest</p>
+            <p>Preheat oven to 230&deg;C / 450&deg;F (fan preferred). Drizzle half the cooled garlic oil over the surface. With well-oiled fingers, press firmly all the way to the pan base in a rhythmic motion across the whole surface. These dimples hold oil, anchor toppings, and prevent large bubbles from ballooning.</p>
+            <p>Scatter confit garlic slices across the top. Press them lightly in. Sprinkle with ~4g flaky sea salt. Rest uncovered for 20 minutes while the oven finishes heating.</p>
           </div>
-          <p>Preheat oven to 230&deg;C / 450&deg;F (fan/convection preferred). Drizzle half the cooled garlic oil over the surface. With well-oiled fingers, press firmly all the way to the pan base in a rhythmic motion across the whole surface. These are your dimples &mdash; they hold oil, anchor toppings, and prevent large bubbles from ballooning.</p>
-          <p>Scatter confit garlic slices across the top and press them lightly in. Sprinkle with ~4g flaky sea salt. Let rest uncovered for 20 minutes while the oven finishes heating.</p>
         </div>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">7</span>
-            Bake
+        <div class="step" data-step="6">
+          <button class="step-toggle" aria-label="Mark step 7 complete">
+            <span class="step-circle">7</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Bake</p>
+            <p>Bake on the lower-middle rack for 20&ndash;25 minutes. The top should be deep golden. The underside is your real indicator &mdash; lift a corner with a spatula: you want bronze, not blond. Pale focaccia is underbaked focaccia. Rotate the pan halfway through if your oven has hot spots.</p>
           </div>
-          <p>Bake on the lower-middle rack for 20&ndash;25 minutes. The top should be deep golden. The underside is your real indicator &mdash; lift a corner with a spatula: you want bronze, not blond. Pale focaccia is underbaked focaccia. Rotate the pan halfway through if your oven has hot spots.</p>
         </div>
 
-        <div class="step">
-          <div class="step-heading">
-            <span class="step-num">8</span>
-            Rest &amp; Finish
+        <div class="step" data-step="7">
+          <button class="step-toggle" aria-label="Mark step 8 complete">
+            <span class="step-circle">8</span>
+          </button>
+          <div class="step-content">
+            <p class="step-title">Rest &amp; Finish</p>
+            <p>Immediately drizzle the remaining garlic oil over the hot surface. It will sizzle and soak in &mdash; this is the final layer of flavour. After 5 minutes, slide the focaccia onto a wire rack. Rest at least 15 minutes before cutting to set the crumb and keep the crust crisp.</p>
           </div>
-          <p>Immediately drizzle the remaining garlic oil over the hot surface. It will sizzle and soak in. This is the final layer of flavour. After 5 minutes, slide the focaccia onto a wire rack. Rest for at least 15 minutes before cutting &mdash; this sets the crumb and keeps the crust crisp rather than letting it steam itself soft.</p>
         </div>
       </div>
 
     </section>
 
-    <!-- ── NOTES & VARIATIONS ── -->
-    <section class="recipe-section">
-      <h2 class="recipe-section-heading">Notes &amp; Variations</h2>
+    <!-- ── Notes ── -->
+    <section class="r-section" id="notes">
+      <h2 class="r-heading">Notes &amp; Variations</h2>
 
-      <div class="science-entry">
-        <span class="science-term">Can I Speed This Up?</span>
+      <details class="note" open>
+        <summary>Can I Speed This Up?</summary>
         <p>Yes. Skip the cold proof. After your stretch &amp; folds, let the dough bulk ferment at room temperature for 4 hours total, then pan and proof for 1&ndash;2 hours before baking. Use 6g yeast instead of 4g. Flavour will be milder but still very good.</p>
-      </div>
+      </details>
 
-      <div class="science-entry">
-        <span class="science-term">Toppings Beyond Garlic</span>
+      <details class="note">
+        <summary>Toppings Beyond Garlic</summary>
         <ul class="variation-list">
           <li>Cherry tomatoes, halved, pressed cut-side-up into the dimples</li>
           <li>Black or Castelvetrano olives</li>
@@ -269,12 +846,13 @@
           <li>Thinly sliced potato, par-blanched, with rosemary</li>
           <li>Just excellent olive oil and flaky salt (the purist&rsquo;s choice)</li>
         </ul>
-      </div>
+      </details>
 
-      <div class="science-entry">
-        <span class="science-term">Storage</span>
-        <p>Best eaten same day. To revive leftovers: reheat slices in a dry skillet over medium heat &mdash; this restores the crispy underside. Freezes excellently: wrap slices tightly, reheat from frozen in a 180&deg;C / 350&deg;F oven for 10 minutes.</p>
-      </div>
+      <details class="note">
+        <summary>Storage</summary>
+        <p>Best eaten same day. To revive leftovers: reheat slices in a dry skillet over medium heat &mdash; this restores the crispy underside.</p>
+        <p>Freezes excellently: wrap slices tightly, reheat from frozen in a 180&deg;C / 350&deg;F oven for 10 minutes.</p>
+      </details>
 
     </section>
 
@@ -286,6 +864,227 @@
   </footer>
 
 </div>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ── Constants ── */
+  const BASE = 8;
+  const STEP_MIN = 2;
+  const STEP_MAX = 24;
+  const STEP_SIZE = 2;
+  const STORAGE_STEPS = 'focaccia_steps_v1';
+  const STORAGE_INGS  = 'focaccia_ings_v1';
+
+  /* ── Serving scaler ── */
+  let servings = BASE;
+  let showVolume = false;
+
+  const btnMinus   = document.getElementById('btn-minus');
+  const btnPlus    = document.getElementById('btn-plus');
+  const scalerCount = document.getElementById('scaler-count');
+  const volNote    = document.getElementById('vol-scale-note');
+
+  function formatAmt(base, type, mult) {
+    const n = base * mult;
+    switch (type) {
+      case 'g':
+        if (n >= 100) return Math.round(n) + 'g';
+        if (n >= 10)  return Math.round(n) + 'g';
+        return (Math.round(n * 10) / 10) + 'g';
+      case 'cloves':
+        return Math.max(1, Math.round(n)) + ' cloves';
+      case 'sprigs':
+        return Math.max(1, Math.round(n)) + ' sprigs';
+      default:
+        return n.toString();
+    }
+  }
+
+  function updateScaler() {
+    const mult = servings / BASE;
+    scalerCount.textContent = servings;
+    btnMinus.disabled = servings <= STEP_MIN;
+    btnPlus.disabled  = servings >= STEP_MAX;
+
+    document.querySelectorAll('.ing-g[data-base]').forEach(el => {
+      const base = parseFloat(el.dataset.base);
+      const type = el.dataset.type || 'g';
+      // Chilli is a special case: show range for 1x, otherwise a single value
+      if (type === 'g' && base === 1.5) {
+        if (mult === 1) {
+          el.textContent = '1\u20132g';
+        } else {
+          el.textContent = formatAmt(base, type, mult);
+        }
+      } else {
+        el.textContent = formatAmt(base, type, mult);
+      }
+    });
+
+    // Show the volume-scale disclaimer only when unit=volume and scale≠1x
+    if (showVolume && servings !== BASE) {
+      volNote.classList.remove('hidden');
+    } else {
+      volNote.classList.add('hidden');
+    }
+  }
+
+  btnMinus.addEventListener('click', () => {
+    if (servings > STEP_MIN) { servings -= STEP_SIZE; updateScaler(); }
+  });
+  btnPlus.addEventListener('click', () => {
+    if (servings < STEP_MAX) { servings += STEP_SIZE; updateScaler(); }
+  });
+
+  /* ── Unit toggle ── */
+  document.querySelectorAll('.unit-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showVolume = btn.dataset.unit === 'v';
+      document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.ing-g').forEach(el => {
+        el.style.display = showVolume ? 'none' : '';
+      });
+      document.querySelectorAll('.ing-v').forEach(el => {
+        el.style.display = showVolume ? '' : 'none';
+      });
+
+      updateScaler(); // refresh vol note visibility
+    });
+  });
+
+  /* ── Ingredient checkboxes ── */
+  const checkboxes = Array.from(document.querySelectorAll('table.ings .cb'));
+
+  function saveIngredients() {
+    localStorage.setItem(STORAGE_INGS, JSON.stringify(checkboxes.map(cb => cb.checked)));
+  }
+
+  function loadIngredients() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_INGS) || 'null');
+      if (!Array.isArray(saved)) return;
+      checkboxes.forEach((cb, i) => {
+        cb.checked = !!saved[i];
+        cb.closest('tr').classList.toggle('checked', cb.checked);
+      });
+    } catch (e) { /* ignore */ }
+  }
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.closest('tr').classList.toggle('checked', cb.checked);
+      saveIngredients();
+    });
+  });
+
+  // Clicking the row also toggles the checkbox
+  document.querySelectorAll('table.ings tr').forEach(row => {
+    row.addEventListener('click', e => {
+      if (e.target.classList.contains('cb')) return; // let checkbox handle itself
+      const cb = row.querySelector('.cb');
+      cb.checked = !cb.checked;
+      row.classList.toggle('checked', cb.checked);
+      saveIngredients();
+    });
+  });
+
+  /* ── Science accordion: toggle all ── */
+  const sciDetails = Array.from(document.querySelectorAll('details.sci'));
+  const toggleAllBtn = document.getElementById('toggle-all-sci');
+  let allOpen = true;
+
+  toggleAllBtn.addEventListener('click', () => {
+    allOpen = !allOpen;
+    sciDetails.forEach(d => d.open = allOpen);
+    toggleAllBtn.textContent = allOpen ? 'Collapse All' : 'Expand All';
+  });
+
+  // Keep button label in sync when individual entries are toggled
+  sciDetails.forEach(d => {
+    d.addEventListener('toggle', () => {
+      allOpen = sciDetails.every(x => x.open);
+      toggleAllBtn.textContent = allOpen ? 'Collapse All' : 'Expand All';
+    });
+  });
+
+  /* ── Step completion tracking ── */
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const progressFill = document.getElementById('progress-fill');
+  const progressText = document.getElementById('progress-text');
+  const resetBtn     = document.getElementById('reset-btn');
+  const TOTAL        = steps.length;
+
+  function updateProgress() {
+    const done = steps.filter(s => s.classList.contains('done')).length;
+    const pct  = (done / TOTAL) * 100;
+    progressFill.style.width = pct + '%';
+    if (done === TOTAL) {
+      progressText.textContent = 'All done \u2014 time to eat!';
+    } else {
+      progressText.textContent = done + ' of ' + TOTAL + ' steps complete';
+    }
+  }
+
+  function updateActiveStep() {
+    let foundActive = false;
+    steps.forEach(s => {
+      s.classList.remove('active');
+      if (!s.classList.contains('done') && !foundActive) {
+        s.classList.add('active');
+        foundActive = true;
+      }
+    });
+  }
+
+  function saveSteps() {
+    const state = steps.map(s => s.classList.contains('done'));
+    localStorage.setItem(STORAGE_STEPS, JSON.stringify(state));
+  }
+
+  function loadSteps() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_STEPS) || 'null');
+      if (!Array.isArray(saved)) return;
+      steps.forEach((s, i) => {
+        if (saved[i]) {
+          s.classList.add('done');
+          s.querySelector('.step-circle').textContent = '\u2713';
+        }
+      });
+    } catch (e) { /* ignore */ }
+  }
+
+  steps.forEach((step, i) => {
+    const toggle = step.querySelector('.step-toggle');
+    const circle = step.querySelector('.step-circle');
+    toggle.addEventListener('click', () => {
+      const isDone = step.classList.toggle('done');
+      circle.textContent = isDone ? '\u2713' : (i + 1);
+      updateProgress();
+      updateActiveStep();
+      saveSteps();
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    steps.forEach((s, i) => {
+      s.classList.remove('done');
+      s.querySelector('.step-circle').textContent = (i + 1);
+    });
+    updateProgress();
+    updateActiveStep();
+    localStorage.removeItem(STORAGE_STEPS);
+  });
+
+  /* ── Init ── */
+  loadSteps();
+  loadIngredients();
+  updateProgress();
+  updateActiveStep();
+  updateScaler();
+</script>
 </body>
 </html>
