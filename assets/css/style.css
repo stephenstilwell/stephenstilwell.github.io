@@ -93,6 +93,36 @@ body {
   color: var(--gold-light);
 }
 
+/* ── Site nav ── */
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.nav-link {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-decoration: none;
+  padding: 0.35rem 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, border-color 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+  border-bottom-color: var(--gold-light);
+}
+
 /* ── Main content area ── */
 main {
   padding: 3rem 4rem;
